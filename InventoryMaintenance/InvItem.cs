@@ -23,9 +23,9 @@ using System.Text;
 *          Item number and description are separated by 4 spaces
 *          
 *       c. Constructor
-*           ()
+*           i. ()
 *               Creates an InvItem object with default values
-*           (itemNo, description, price)
+*           ii.(itemNo, description, price)
 *               Creates an InvItem object with the specified values
 *               
 *  Patrick McKee & Dominique Tepper, 28MAY2022
@@ -35,21 +35,23 @@ namespace InventoryMaintenance
 {
     public class InvItem
     {
+        //2-C, i. Constructor with no parameters
         public InvItem() { }
 
-
-
+        //2-C, ii. Constructor with 3 parameters
         public InvItem(int itemNo, string description, decimal price)
         {
-            ItemNo = itemNo;
-            Description = description;
-            Price = price;
+            this.ItemNo = itemNo;
+            this.Description = description;
+            this.Price = price;
         }
 
+        //2-A. Read/Write properties
         public int ItemNo { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
 
+        //2-B. GetDisplayMethod()
         public string GetDisplayText()
         {
             return ItemNo.ToString() + "    " + Description + "  " + Price.ToString("c");
