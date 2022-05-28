@@ -61,7 +61,6 @@ namespace InventoryMaintenance
             if (invItem != null)
             {
                 invItems.Add(invItem);
-                invItems.Save();
                 FillItemListBox();
             }
 
@@ -86,7 +85,6 @@ namespace InventoryMaintenance
                 if (button == DialogResult.Yes)
                 {
                     invItems.Remove(invItem);
-                    invItems.Save();
                     FillItemListBox();
                 }
             }
@@ -98,10 +96,5 @@ namespace InventoryMaintenance
 
         }
 
-        private void HandleChange(List<InvItem> invItems)
-        {
-            invItems.Save();
-            FillItemListBox();
-        }
     }
 }
