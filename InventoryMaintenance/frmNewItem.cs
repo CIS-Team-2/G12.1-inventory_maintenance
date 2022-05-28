@@ -25,10 +25,18 @@ namespace InventoryMaintenance
         }
 
         // Add a statement here that declares the inventory item.
+        private InvItem invItem;
+
 
         // Add a method here that gets and returns a new item.
+        public InvItem GetNewItem() 
+        {
+            this.ShowDialog();
+            return invItem;
+        }
 
-        private void btnSave_Click(object sender, EventArgs e)
+
+    private void btnSave_Click(object sender, EventArgs e)
         {
             if (IsValidData())
             {

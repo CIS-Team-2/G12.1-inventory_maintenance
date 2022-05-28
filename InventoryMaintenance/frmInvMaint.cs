@@ -26,11 +26,13 @@ namespace InventoryMaintenance
         }
 
         // Add a statement here that declares the list of items.
+        private List<InvItem> items;
 
 
         private void frmInvMaint_Load(object sender, EventArgs e)
         {
             // Add a statement here that gets the list of items.
+            items = InvItemDB.GetItems();
             FillItemListBox();
         }
 
@@ -38,6 +40,11 @@ namespace InventoryMaintenance
         {
             lstItems.Items.Clear();
             // Add code here that loads the list box with the items in the list.
+
+            foreach (var i in items)
+            {
+                lstItems.Items.Add(i);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
