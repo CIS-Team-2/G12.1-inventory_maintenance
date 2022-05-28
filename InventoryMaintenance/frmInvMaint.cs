@@ -33,7 +33,6 @@ namespace InventoryMaintenance
 
         private List<InvItem> invItems = null;
 
-
         private void frmInvMaint_Load(object sender, EventArgs e)
         {
             // Add a statement here that gets the list of items.
@@ -86,7 +85,9 @@ namespace InventoryMaintenance
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (button == DialogResult.Yes)
                 {
-                    invItems -= invItem;
+                    invItems.Remove(invItem);
+                    invItems.Save();
+                    FillItemListBox();
                 }
             }
         }
@@ -94,6 +95,13 @@ namespace InventoryMaintenance
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+
+        }
+
+        private void HandleChange(List<InvItem> invItems)
+        {
+            invItems.Save();
+            FillItemListBox();
         }
     }
 }
