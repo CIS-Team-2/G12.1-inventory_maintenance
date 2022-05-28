@@ -35,10 +35,14 @@ namespace InventoryMaintenance
 {
     public class InvItem
     {
-        //2-C, i. Constructor with no parameters
+        private int itemNo;
+        private string description;
+        private decimal price;
+
+        //2-C, i. empty constructor
         public InvItem() { }
 
-        //2-C, ii. Constructor with 3 parameters
+        //2-C, ii. constructor with 3 parameters
         public InvItem(int itemNo, string description, decimal price)
         {
             this.ItemNo = itemNo;
@@ -47,14 +51,49 @@ namespace InventoryMaintenance
         }
 
         //2-A. Read/Write properties
-        public int ItemNo { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public int ItemNo 
+        { 
+            get
+            {
+                return itemNo;
+            }
+            
+            set
+            {
+                itemNo = value;
+            }
+        }
+        public string Description 
+        {
+            get
+            {
+                return description;
+            }
+                
+            set
+            {
+                description = value;
+            }
+        }
+        public decimal Price 
+        { 
+            get
+            {
+                return price;
+            } 
+            
+            set
+            {
+                price = value;
+            }
+
+        }
 
         //2-B. GetDisplayMethod()
         public string GetDisplayText()
         {
-            return ItemNo.ToString() + "    " + Description + "  " + Price.ToString("c");
+            return itemNo + "    " + description + " "
+                + price.ToString("c");
         }
     }
 }
