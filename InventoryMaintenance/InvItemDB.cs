@@ -7,7 +7,7 @@ namespace InventoryMaintenance
 {
     public static class InvItemDB
     {
-        private const string Path = @"..\..\InventoryItems.xml";
+        private const string Path = @"D:\C#\_Team 2 Assignment\G12-1_InventoryMaintenance\InventoryMaintenance\InventoryItems.xml";
 
         public static List<InvItem> GetItems()
         {

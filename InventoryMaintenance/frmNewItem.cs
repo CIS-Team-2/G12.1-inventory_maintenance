@@ -42,6 +42,10 @@ namespace InventoryMaintenance
             {
                 // Add code here that creates a new item
                 // and closes the form.
+
+                invItem = new InvItem(Convert.ToInt32(txtItemNo.Text), txtDescription.Text, 
+                    Convert.ToDecimal(txtPrice.Text));
+                this.Close();
             }
         }
 

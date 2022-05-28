@@ -24,26 +24,31 @@ namespace InventoryMaintenance
         {
             InitializeComponent();
         }
+/* ******************************************************************************************
+*   6. Declare a class-level List<InvItem> variable named invItems with an initial
+*      value of null
+*      
+*   Patrick McKee & Dominique Tepper, 28MAY2022
+* ******************************************************************************************/
 
-        // Add a statement here that declares the list of items.
-        private List<InvItem> items;
+        private List<InvItem> invItems = null;
 
 
         private void frmInvMaint_Load(object sender, EventArgs e)
         {
             // Add a statement here that gets the list of items.
-            items = InvItemDB.GetItems();
+            invItems = InvItemDB.GetItems();
             FillItemListBox();
         }
 
         private void FillItemListBox()
         {
             lstItems.Items.Clear();
+            
             // Add code here that loads the list box with the items in the list.
-
-            foreach (var i in items)
+            foreach (InvItem i in invItems)
             {
-                lstItems.Items.Add(i);
+                lstItems.Items.Add(i.GetItems("\t"));
             }
         }
 
@@ -51,6 +56,17 @@ namespace InventoryMaintenance
         {
             // Add code here that creates an instance of the New Item form
             // and then gets a new item from that form.
+
+            frmNewItem newItemForm = new frmNewItem();
+            InvItem invItem = newItemForm.GetNewItem();
+            if (invItem != null)
+            {
+                invItems.Add(invItem);
+                invItems.Save();
+                FillItemListBox();
+            }
+
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
