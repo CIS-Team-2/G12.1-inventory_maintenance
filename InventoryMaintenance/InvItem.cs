@@ -48,6 +48,11 @@ namespace InventoryMaintenance
 
         public int ItemNo { get; set; }
         public string Description { get; set; }
-        decimal Price { get; set; }
+        public decimal Price { get; set; }
+
+        public string GetDisplayText()
+        {
+            return ItemNo.ToString() + "    " + Description + "  " + Price.ToString("c");
+        }
     }
 }
