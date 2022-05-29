@@ -35,8 +35,8 @@ namespace InventoryMaintenance
 
         private void HandleChange(InvItemList list)
         {
-            invItems.Save();
-            FillItemListBox();
+        //    invItems.Save();
+           FillItemListBox();
         }
 
         private void frmInvMaint_Load(object sender, EventArgs e)
