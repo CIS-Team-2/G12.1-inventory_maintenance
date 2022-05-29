@@ -90,7 +90,7 @@ namespace InventoryMaintenance
         }
 
         //2-B. GetDisplayMethod()
-        public string GetDisplayText() 
+        public string GetDisplayText(string sep) 
         {
             return itemNo + "    " + description + " "
                 + price.ToString("c");

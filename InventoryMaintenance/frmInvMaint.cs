@@ -33,11 +33,11 @@ namespace InventoryMaintenance
 
         private List<InvItem> invItems = null;
 
-        private void HandleChange(InvItemList list)
+        /*private void HandleChange(InvItemList list)
         {
         //    invItems.Save();
            FillItemListBox();
-        }
+        }*/
 
         private void frmInvMaint_Load(object sender, EventArgs e)
         {
