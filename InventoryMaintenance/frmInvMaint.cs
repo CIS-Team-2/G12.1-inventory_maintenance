@@ -33,6 +33,12 @@ namespace InventoryMaintenance
 
         private List<InvItem> invItems = null;
 
+        private void HandleChange(InvItemList list)
+        {
+            invItems.Save();
+            FillItemListBox();
+        }
+
         private void frmInvMaint_Load(object sender, EventArgs e)
         {
             // Add a statement here that gets the list of items.
@@ -42,13 +48,22 @@ namespace InventoryMaintenance
 
         private void FillItemListBox()
         {
+            InvItem item;
             lstItems.Items.Clear();
             
             // Add code here that loads the list box with the items in the list.
-            foreach (InvItem i in invItems)
+            for (int i = 0; i < invItems.Count; i++)
             {
-                lstItems.Items.Add(i.GetItems("\t"));
+                item = invItems[i];
+                lstItems.Items.Add(item.GetDisplayText("\t"));
             }
+            
+            
+            
+            //foreach (InvItem i in invItems)
+            //{
+            //    lstItems.Items.Add(i.GetDisplayText("\t"));
+           //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
